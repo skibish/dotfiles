@@ -1,0 +1,12 @@
+budparr.language-hugo-vscode
+bungcip.better-toml
+DavidAnson.vscode-markdownlint
+formulahendry.auto-rename-tag
+HookyQR.beautify
+ms-azuretools.vscode-docker
+ms-python.python
+ms-vscode.Go
+rust-lang.rust
+streetsidesoftware.code-spell-checker
+vscode-icons-team.vscode-icons
+zhuangtongfa.material-theme

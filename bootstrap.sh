@@ -3,6 +3,7 @@
 
 function doIt() {
     rsync --exclude ".git/" \
+        --exclude "vscode" \
         --exclude ".DS_Store" \
         --exclude ".osx" \
         --exclude "bootstrap.sh" \
