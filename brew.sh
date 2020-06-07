@@ -40,6 +40,8 @@ brew install rename
 brew install rlwrap
 brew install ssh-copy-id
 brew install tree
+brew install jq
+brew install httpie
 
 # Remove outdated versions from the cellar.
 brew cleanup
