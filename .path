@@ -4,7 +4,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # Go
 export PATH=$PATH:/usr/local/go/bin
 
-# Add Visual Studio Code (code)
+# Add Visual Studio Code
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Rustlang
