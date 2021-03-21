@@ -42,6 +42,8 @@ brew install ssh-copy-id
 brew install tree
 brew install jq
 brew install httpie
+brew install hugo
+brew install rclone
 
 # Remove outdated versions from the cellar.
 brew cleanup
