@@ -45,5 +45,8 @@ brew install httpie
 brew install hugo
 brew install rclone
 
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+
 # Remove outdated versions from the cellar.
 brew cleanup
