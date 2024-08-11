@@ -1,3 +1,6 @@
+[init]
+	defaultBranch = main
+
 [push]
 
 	# https://git-scm.com/docs/git-config#git-config-pushdefault
@@ -91,11 +94,11 @@
 	# Better hard reset
 	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
 
-	# Clean repo REMOVE ALL BRANCHES THAT ARE MERGED IN master OR IN SPECIFIED as = bclean dev
-	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+	# Clean repo REMOVE ALL BRANCHES THAT ARE MERGED IN main OR IN SPECIFIED as = bclean dev
+	bclean = "!f() { git branch --merged ${1-main} | grep -v " ${1-main}$" | xargs -r git branch -d; }; f"
 
 	# When done with task, checkout main branch, update and clean
-	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+	bdone = "!f() { git checkout ${1-main} && git up && git bclean ${1-main}; }; f"
 
 	# Show the user email for the current repository.
 	whoami = config user.email
