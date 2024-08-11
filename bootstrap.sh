@@ -24,7 +24,7 @@ fi;
 unset doIt;
 
 # Download and install FiraCode
-curl -L https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip -o /tmp/firacode.zip
+curl -L https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip -o /tmp/firacode.zip
 unzip /tmp/firacode.zip -d /tmp/firacode
 cp -rv /tmp/firacode/ttf/*  ~/Library/Fonts
 rm -rf /tmp/firacode /tmp/firacode.zip
