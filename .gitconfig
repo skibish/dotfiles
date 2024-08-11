@@ -1,0 +1,114 @@
+[push]
+
+	# https://git-scm.com/docs/git-config#git-config-pushdefault
+	default = simple
+	# Make `git push` push relevant annotated tags when pushing branches out.
+	followTags = true
+
+[color]
+
+	ui = true
+
+[core]
+
+	autocrlf = input
+	excludesfile = ~/.gitignore
+
+	# Treat spaces before tabs and all kinds of trailing whitespace as an error
+	# [default] trailing-space: looks for spaces at the end of a line
+	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+	# Make `git rebase` safer on macOS
+	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false
+
+	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
+	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+	precomposeunicode = false
+
+	# Speed up commands involving untracked files such as `git status`.
+	# https://git-scm.com/docs/git-update-index#_untracked_cache
+	untrackedCache = true
+
+[pull]
+
+	rebase = true
+
+[rerere]
+
+	enabled = true
+
+[alias]
+
+	# Short status
+	s = status -s
+
+	# View pretty log
+	lg = log --oneline --decorate --all --graph
+
+	# Pull in remote changes for the current repository and all its submodules
+	p = pull --recurse-submodules
+
+	# Clone a repository including all submodules
+	c = clone --recursive
+
+	# Checkout
+	co = checkout
+
+	# Open github config
+	ec = config --global -e
+
+	# Get directory up to date
+	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+
+	# Start new work
+	cob = checkout -b
+
+	# Add all and commit
+	cm = !git add -A && git commit -av
+
+	# Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+
+	# List aliases
+	aliases = config --get-regexp alias
+
+	# Amend the currently staged files to the latest commit
+	amend = commit --amend --reuse-message=HEAD
+
+	# Remove the old tag with this name and tag the latest commit with it.
+	retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
+
+	# Undo commit
+	undo = reset HEAD~1 --mixed
+
+	# Force push to remote
+	fp = push -f
+
+	# Better hard reset
+	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+
+	# Clean repo REMOVE ALL BRANCHES THAT ARE MERGED IN master OR IN SPECIFIED as = bclean dev
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+
+	# When done with task, checkout main branch, update and clean
+	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+
+	# Show the user email for the current repository.
+	whoami = config user.email
+
+[merge]
+
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
+
+[help]
+
+	# Automatically correct and execute mistyped commands
+	autocorrect = 1
+
+[url "https://"]
+	insteadOf = git://
