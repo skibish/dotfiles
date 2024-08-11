@@ -2,7 +2,7 @@
 #!/usr/bin/env bash
 
 # If zsh is not installed, install it and make as default
-if [ ! -d "~/.oh-my-zsh" ]
+if [ ! -d "$HOME/.oh-my-zsh" ]
 then
     git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
     chsh -s $(which zsh)
