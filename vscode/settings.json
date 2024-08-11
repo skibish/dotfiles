@@ -1,0 +1,15 @@
+{
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "editor.fontFamily": "FiraCode-Retina",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "files.autoSave": "onFocusChange",
+    "files.insertFinalNewline": true,
+    "editor.renderWhitespace": "all",
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 0,
+    "go.useLanguageServer": true,
+    "workbench.iconTheme": "vscode-icons",
+}
