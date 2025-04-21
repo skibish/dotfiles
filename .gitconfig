@@ -1,12 +1,32 @@
+[column]
+    ui = auto
+
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = version:refname
+
 [init]
 	defaultBranch = main
+[diff]
+    algorithm = histogram
+    colorMoved = true
+    mnemonicPrefix = true
+    renames = true
 
 [push]
 
 	# https://git-scm.com/docs/git-config#git-config-pushdefault
 	default = simple
+	autoSetupRemote = true
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
 
 [color]
 
@@ -41,11 +61,12 @@
 [rerere]
 
 	enabled = true
+	autoupdate = true
 
 [alias]
 
 	# Short status
-	s = status -s
+	s = status --short
 
 	# View pretty log
 	lg = log --oneline --decorate --all --graph
@@ -60,7 +81,7 @@
 	co = checkout
 
 	# Open github config
-	ec = config --global -e
+	ec = config --global --edit
 
 	# Get directory up to date
 	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
@@ -72,9 +93,9 @@
 	cm = !git add -A && git commit -av
 
 	# Show verbose output about tags, branches or remotes
-	tags = tag -l
-	branches = branch -a
-	remotes = remote -v
+	tags = tag --list
+	branches = branch --all
+	remotes = remote --verbose
 
 	# List aliases
 	aliases = config --get-regexp alias
@@ -89,7 +110,7 @@
 	undo = reset HEAD~1 --mixed
 
 	# Force push to remote
-	fp = push -f
+	fp = push --force
 
 	# Better hard reset
 	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
@@ -108,10 +129,15 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 
+	conflictstyle = zdiff3
+
 [help]
 
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
+
+[commit]
+    verbose = true
 
 [url "https://"]
 	insteadOf = git://
